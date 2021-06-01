@@ -1,0 +1,16 @@
+.show_day{
+    font-size: 16px;color: #616161 !important;
+    border-bottom: 2px solid #29b1fe;
+}
+
+h5{
+    color: #2479BA;
+    text-decoration: none;
+    outline: 0;
+    font-weight: 700;
+}
+.card-text{
+    color: #666; 
+    line-height: 1.5; 
+    font-size: 16px;
+}

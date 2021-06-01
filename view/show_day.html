@@ -1,0 +1,91 @@
+{% extends "./base.html" %}
+{% block title %}{{data[0].year}}/{{data[0].month}}/{{data[0].day}}{% endblock %}
+{% block description %}
+{{data[0].year}}/{{data[0].month}}/{{data[0].day}}
+{% endblock %}
+<!--  css-->
+{%block css%}
+  <link rel="stylesheet" href="/static/css/show_day.css">
+{%endblock%}
+<!-- nav-->
+{% include "nav.html" %}
+<!-- js-->
+{%block script%}
+<script type="text/javascript">
+  $(function () {
+      $('.btn-primary').click(function () {
+          let isconfirm = confirm('是否删除')
+          //console.log(isconfirm)
+          if (isconfirm == false) return;
+          isprompt = prompt("请输入删除密码:");
+          
+          if (isprompt == null) return;
+          //post数据
+          let id = this.name;
+
+          $.ajax({
+              type:'post',
+              url:'/show/delete',
+              contentType:'application/json',
+              data:JSON.stringify({
+                  'id': id,
+                  'isprompt':isprompt
+              }),
+              success: function (data) {
+                  //console.log(data);
+                  if(data.succ){
+                      console.log("成功删除");
+                      alert("成功删除")
+                      window.location.reload();//刷新
+                  }else{
+                      console.log("密码错误");
+                      alert("密码错误");
+                  }
+              },
+              error:function(){
+                  alert("服务器错误")
+                  console.log('删除失败');
+              },
+          })
+          //location.reload();
+      });
+  })
+</script>
+{%endblock%}
+<!-- container-->
+{% block container %}
+<h1>{{data[0].year}}/{{data[0].month}}/{{data[0].day}}</h1>
+{% for i in data%}
+<div class="row">
+  <div class="col-lg-1 col-xl-2"> </div>
+  <div class="col">
+          <div class="card" style="width:100%;">
+              <div class="card-body">
+                  <p class="card-text"> &ensp; &ensp;&ensp; &ensp;条目：{{i.event}}</p>
+                  <p class="card-text"> &ensp; &ensp;&ensp; &ensp;金额：{{i.money}}{% if i.remark %}（{{i.remark}}） {% endif %}</p>
+              </div>
+              <div class="card-footer">
+                <div class="float-right text-muted" style="color: black;">
+                  <input class="btn btn-primary m-2" type="submit" value= "删除" name={{i.id}}></div>
+              </div>
+          </div>
+  </div>
+  <div class="col-lg-1 col-xl-2"> </div>
+</div>
+{% endfor %}
+<div class="row">
+  <div class="col-lg-1 col-xl-2"> </div>
+  <div class="col">
+    <div class="card" style="width:100%;">
+      <div class="card-footer">
+        <div class="float-right text-muted" style="color: black;">总共: {{total}}</div>
+      </div>
+    </div>
+  </div>
+ <div class="col-lg-1 col-xl-2"> </div>
+</div>
+
+
+{% endblock %}
+<!-- footer-->
+{% include "footer.html" %}

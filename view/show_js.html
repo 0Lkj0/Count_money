@@ -1,0 +1,73 @@
+{% extends "./base.html" %}
+{% block title %}记录{% endblock %}
+{% block description %}
+记录
+{% endblock %}
+<!--  css-->
+{%block css%}
+  <link rel="stylesheet" href="/static/css/show_js.css">
+{%endblock%}
+<!-- js-->
+
+<!-- js-->
+{%block script%}
+  <script src="/static/js/show_js.js"></script>
+
+{%endblock%}
+<!-- nav-->
+{% include "nav.html" %} 
+<!-- container-->
+{% block container %}
+
+
+<header>
+  <div class="wrap">
+    <h1>记录</h1>
+  </div>
+</header>
+<div class="content">
+  <div class="content"  style="margin-top:60px">
+    <form action="/" method="POST" name="form" >
+        <h4>一、听力</h4>
+        <span >
+          <input id="js1" class="form-control"  type="text" placeholder="A" name="A">
+          <span class="spanjs small" style="color: rgb(255 0 0 / 25%);">请填写数字</span>
+          <br>
+        </span>
+        <span >
+            <input id="js1" class="form-control"  type="text" placeholder="B" name="B">
+            <span class="spanjs small" style="color: rgb(255 0 0 / 25%);">请填写数字</span>
+            <br>
+        </span>
+        <span >
+            <input id="js1" class="form-control"  type="text" placeholder="C" name="C">
+            <span class="spanjs small" style="color: rgb(255 0 0 / 25%);">请填写数字</span>
+            <br>
+        </span>
+        <input id="zonfen1" readonly class="form-control"  type="text" placeholder="听力总分" name="zonfen">
+        <span > </span>
+        <h4>二、阅读</h4>
+        <span >
+            <input id="wanxing" class="form-control"  type="text" placeholder="完型" name="wanxing">
+            <span class="spanjs small" style="color: rgb(255 0 0 / 25%);">请填写数字</span>
+            <br>
+        </span>
+        <span >
+            <input id="changpian" class="form-control"  type="text" placeholder="长篇" name="changpian">
+            <span class="spanjs small" style="color: rgb(255 0 0 / 25%);">请填写数字</span>
+            <br>
+        </span>
+        <span >
+            <input id="yuedu" class="form-control"  type="text" placeholder="阅读" name="yuedu">
+            <span class="spanjs small" style="color: rgb(255 0 0 / 25%);">请填写数字</span>
+            <br>
+        </span>
+        <input id="zonfen2" readonly class="form-control"  type="text" placeholder="阅读总分" name="zonfen">
+        <span > </span>
+        <br>
+        <input id="zonfen3" readonly class="form-control"  type="text" placeholder="总分" name="zonfen">
+    </form>
+  </div>
+</div>
+
+{%endblock%}

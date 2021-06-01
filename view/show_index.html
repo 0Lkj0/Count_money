@@ -1,0 +1,48 @@
+{% extends "./base.html" %}
+{% block title %}all{% endblock %}
+{% block description %}
+  全部记录
+{% endblock %}
+<!--  css-->
+{%block css%}
+  <link rel="stylesheet" href="/static/css/show_index.css">
+{%endblock%}
+<!-- nav-->
+{% include "nav.html" %} 
+<!-- container-->
+{% block container %}
+
+<h1>ALL</h1>
+{% for i in allarray%}
+{% if i !=0 %}
+<div class="row">
+  <div class="col-lg-1 col-xl-2"> </div>
+  <div class="col">
+      <a href='/show/year?year={{loop.index0}}' class="" title="点击查看详情">
+          <div class="card" style="width:100%;">
+            <div class="card-body">
+              <p class="card-text"> &ensp; &ensp;&ensp; &ensp;时间：{{loop.index0}}年</p>
+              <p class="card-text"> &ensp; &ensp;&ensp; &ensp;金额：{{i}}</p>
+          </div>
+          </div>
+      </a>
+  </div>
+  <div class="col-lg-1 col-xl-2"> </div>
+</div>
+{% endif %}
+{% endfor %}
+<div class="row">
+  <div class="col-lg-1 col-xl-2"> </div>
+  <div class="col">
+    <div class="card" style="width:100%;">
+      <div class="card-body">
+        <div class="float-right text-muted" style="color: black;">总共: {{total}}</div>
+      </div>
+    </div>
+  </div>
+ <div class="col-lg-1 col-xl-2"> </div>
+</div>
+
+{% endblock %}
+<!-- footer-->
+{% include "footer.html" %}

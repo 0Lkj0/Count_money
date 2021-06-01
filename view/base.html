@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+    <meta name="description" content="{% block description %}{% endblock %}"/>
+    <link href="/static/image/favicon.ico" rel="shortcut icon" class="icon-love" type="images/x-ico">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    {%block css%}<!--  css-->{%endblock%}
+    
+</head>
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
+    
+    {%block script%}<!-- js-->{%endblock%}
+    <!-- nav-->
+    {% include "nav.html" %} 
+    <!-- container-->
+    <div class="container mb-4" style="background-color: #FDFDFE;" >
+    {% block container %}{% endblock %}
+    </div>
+    <!-- footer-->
+    {% include "footer.html" %}
+</body>
+</html>

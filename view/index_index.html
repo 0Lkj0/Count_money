@@ -1,0 +1,64 @@
+{% extends "./base.html" %}
+{% block title %}记录{% endblock %}
+{% block description %}
+记录
+{% endblock %}
+<!--  css-->
+{%block css%}
+  <link rel="stylesheet" href="/static/css/index_index.css">
+{%endblock%}
+<!-- js-->
+
+<!-- js-->
+{%block script%}
+  <script src="/static/js/index_index.js"></script>
+  {% if is_True == true %}
+  <script type="text/javascript">
+    $(() => {   
+        alert("上传成功")
+    })
+  </script>
+  {% elif is_True == false %}
+  <script type="text/javascript">
+    $(() => {   
+        alert("上传失败")
+    })
+  </script>
+  {% endif %}
+{%endblock%}
+<!-- nav-->
+{% include "nav.html" %} 
+<!-- container-->
+{% block container %}
+
+
+<header>
+  <div class="wrap">
+    <h1>记录</h1>
+  </div>
+</header>
+<div class="content">
+  <div class="content text-center"  style="margin-top:60px">
+    <form action="/" method="POST" name="form" >
+        <input class="form-control" required  type="number" placeholder="year" name="year" value={{year}}><br>
+        <input class="form-control" required type="number" placeholder="month" name="month" value={{month}}><br>
+        <input class="form-control" required type="number" placeholder="day" name="day" value={{day}}><br>
+        <!-- <input class="form-control" autofocus  required type="text" placeholder="event" name="event"><br> -->
+        <span>
+          <input id="event" class="form-control" autofocus  required type="text" placeholder="event" name="event">
+          <span class="spanevent small" style="color: rgb(255 0 0 / 25%);">不能为空或者空格</span>
+          <br>
+        </span>
+        <span >
+          <input id="money" required  class="form-control"  type="text" placeholder="money" name="money">
+          <span class="spanmoney small" style="color: rgb(255 0 0 / 25%);">请填写数字</span>
+          <br>
+        </span>
+        
+        <input class="form-control" type="text" placeholder="remark" name="remark" ><br>
+        <input class="btn btn-primary m-2" id="submit" type="submit" value= "submit">
+    </form>
+  </div>
+</div>
+
+{%endblock%}

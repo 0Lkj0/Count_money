@@ -1,0 +1,46 @@
+{% extends "./base.html" %}
+{% block title %}{{data[0].year}}/{{data[0].month}}{% endblock %}
+{% block description %}
+{{data[0].year}}/{{data[0].month}}
+{% endblock %}
+<!--  css-->
+{%block css%}
+  <link rel="stylesheet" href="/static/css/show_month.css">
+{%endblock%}
+<!-- nav-->
+{% include "nav.html" %} 
+<!-- container-->
+{% block container %}
+<h1>{{data[0].year}}/{{data[0].month}}</h1>
+{% for i in montharray%}
+{% if i !=0 %}
+<div class="row">
+  <div class="col-lg-1 col-xl-2"> </div>
+  <div class="col">
+      <a href='/show/day?year={{data[0].year}}&month={{data[0].month}}&day={{loop.index0}}' class="" title="点击查看详情">
+          <div class="card" style="width:100%;">
+            <div class="card-body">
+              <p class="card-text"> &ensp; &ensp;&ensp; &ensp;时间：{{data[0].year}}年{{data[0].month}}月{{loop.index0}}日</p>
+              <p class="card-text"> &ensp; &ensp;&ensp; &ensp;金额：{{i}}</p>
+          </div>
+          </div>
+      </a>
+  </div>
+  <div class="col-lg-1 col-xl-2"> </div>
+</div>
+{% endif %}
+{% endfor %}
+<div class="row">
+  <div class="col-lg-1 col-xl-2"> </div>
+  <div class="col">
+    <div class="card" style="width:100%;">
+      <div class="card-body">
+        <div class="float-right text-muted" style="color: black;">总共: {{total}}</div>
+      </div>
+    </div>
+  </div>
+ <div class="col-lg-1 col-xl-2"> </div>
+</div>
+{% endblock %}
+<!-- footer-->
+{% include "footer.html" %}

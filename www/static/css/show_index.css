@@ -1,0 +1,30 @@
+.show_index{
+    font-size: 16px;color: #616161 !important;
+    border-bottom: 2px solid #29b1fe;
+}
+.col a{
+    text-decoration: none;
+}
+.col a .card{
+    border: 0px;
+    background-color: #FFF;
+}
+.col a .card-footer{
+    border: 0px;
+    background-color: #FFF;
+}
+.col a:hover .card{ 
+    background-color: rgb(231,247,255);
+}
+
+h5{
+    color: #2479BA;
+    text-decoration: none;
+    outline: 0;
+    font-weight: 700;
+}
+.card-text{
+    color: #666; 
+    line-height: 1.5; 
+    font-size: 16px;
+}
