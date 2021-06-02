@@ -146,7 +146,7 @@ module.exports = class extends Base {
     //console.log(data)
     if (data.isprompt == "qwe123"){
       const Count_money = this.model('Count_money');
-      let down = await Count_money.where({year: data.year}).select();
+      let down = await Count_money.where({year: data.year, month: data.month}).select();
       this.json({
         "succ":true,
         down
