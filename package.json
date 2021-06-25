@@ -1,7 +1,7 @@
 {
   "name": "count_money",
   "description": "Creating the bill",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "author": "lw",
   "scripts": {
     "start": "node development.js",
