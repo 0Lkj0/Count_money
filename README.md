@@ -7,8 +7,8 @@ This project is made for my wife to count money
 + 展示账单
 + 可以删除每次详情账单
 + 计算四六级分数计算器
-# 2021.6.2
-+ 添加按月份下载功能
++ 按月份下载功能
++ 验证(登录)功能
 
 # 准备添加或者修改的功能
 + 下载不用id但是要添加remark栏目
